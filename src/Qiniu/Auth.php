@@ -50,12 +50,18 @@ final class Auth
         return $this->sign($data);
     }
 
+	/**
+	 * 验证回调
+	 */
     public function verifyCallback($contentType, $originAuthorization, $url, $body)
     {
         $authorization = 'QBox ' . $this->signRequest($url, $body, $contentType);
         return $originAuthorization === $authorization;
     }
 
+	/**
+	 * 生成私有下载链接
+	 */
     public function privateDownloadUrl($baseUrl, $expires = 3600)
     {
         $deadline = time() + $expires;
@@ -72,6 +78,9 @@ final class Auth
         return "$baseUrl&token=$token";
     }
 
+	/**
+	 * 获取上传Token
+	 */
     public function uploadToken(
         $bucket,
         $key = null,
