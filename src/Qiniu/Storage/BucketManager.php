@@ -184,7 +184,7 @@ final class BucketManager
     }
 
     /**
-     * 从指定URL抓取资源，并将该资源存储到指定空间中
+     * 从指定URL抓取资源，并将该资源存储到指定空间中 (第三方资源抓取)
      *
      * @param $url        指定的URL
      * @param $bucket     目标资源空间

@@ -4,9 +4,9 @@
  */
 require_once dirname(__DIR__) . '/common.php';
 
-// 引入鉴权类
+// 鉴权类
 use Qiniu\Auth;
-// 引入上传类
+// 上传类
 use Qiniu\Storage\UploadManager;
 
 // 需要填写你的 Access Key 和 Secret Key
@@ -46,6 +46,11 @@ array(2) {
 ["hash"]=>string(28) "FrCL5445_2no3fGhXQQ3GeUtA4ey"
 ["key"]=>string(10) "t1/abc.jpg"
 }
-格式：http://七牛的图片域名/t1/abc.jpg
+原图格式：http://七牛的图片域名/t1/abc.jpg
 http://og54iil9t.bkt.clouddn.com/t1/abc.jpg
+缩略图： http://og54iil9t.bkt.clouddn.com/t1/abc.jpg?imageView2/1/h/100
+ 缩略图指定宽高： http://og54iil9t.bkt.clouddn.com/t1/abc.jpg?imageView2/1/h/100/w/300
+ http://图片域名/path/to?imageView2/缩略图模式0-5/缩略图参数名如w/参数值如100/h/200
+ 访问同时加水印：管道方式
+http://og54iil9t.bkt.clouddn.com/t1/abc.jpg?imageView2/1/h/100/w/300|watermark/1/image/aHR0cDovL3d3dy5iMS5xaW5pdWRuLmNvbS9pbWFnZXMvbG9nby0yLnBuZw==
  */
