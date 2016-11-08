@@ -49,3 +49,6 @@ if(file_exists($configFile)) {
 $qiniuConfig = include DEMO_ROOT . 'config/qiniu.php';
 $qiniuConfig['ak']=$envData['qiniu_ak'];
 $qiniuConfig['sk']=$envData['qiniu_sk'];
+$qiniuConfig['bucket_name']=isset($envData['bucket_name']) && $envData['bucket_name'] ?$envData['bucket_name']:$qiniuConfig['bucket_name'];
+
+
