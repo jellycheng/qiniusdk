@@ -20,7 +20,15 @@ Access-Control-Allow-Origin: *
 ###图片处理 --数据处理
    http://developer.qiniu.com/code/v6/api/kodo-api/image/index.html
 - 图片基本处理 (imageView2)
+    此接口支持处理的原图片格式有psd、jpeg、png、gif、webp、tiff、bmp
+    支持图片互相转换的格式有：jpg，gif，png，webp
+    原图转为webp格式：
+        http://ogazeaa9c.bkt.clouddn.com/pay.jpg?imageView2/2/format/webp
+    webp转jpg：
+        http://ogazeaa9c.bkt.clouddn.com/pay.webp?imageView2/2/format/jpg
 - 图片高级处理 (imageMogr2)
+    支持处理的原图片格式有 psd、jpeg、png、gif、webp、tiff、bmp
+    图片格式转换,支持jpg、gif、png、webp
 - 图片基本信息 (imageInfo)
 - 图片EXIF信息 (exif)
 - 图片水印处理 (watermark)
@@ -32,3 +40,15 @@ Access-Control-Allow-Origin: *
 
 ###other
 http://www.plupload.com/
+
+``````
+通过get方式，参数ak和bucket名获取bucket主机信息：
+    http://uc.qbox.me/v1/query?ak=ak值bucket=test-bucket
+响应内容如下：
+{"ttl":86400,
+  "http":{"io":["http://iovip.qbox.me"],
+	        "up":["http://up.qiniu.com","http://upload.qiniu.com","-H up.qiniu.com http://183.136.139.16"]
+	},
+  "https":{"io":["https://iovip.qbox.me"],"up":["https://up.qbox.me"]}
+}
+``````
