@@ -52,3 +52,8 @@ http://www.plupload.com/
   "https":{"io":["https://iovip.qbox.me"],"up":["https://up.qbox.me"]}
 }
 ``````
+###定义图片样式
+样式名 webp 值为 imageView2/2/format/webp
+访问http://ogazeaa9c.bkt.clouddn.com/pay.jpg-webp 等价于
+    http://ogazeaa9c.bkt.clouddn.com/pay.jpg?imageView2/2/format/webp
+    
