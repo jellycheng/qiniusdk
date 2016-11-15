@@ -17,8 +17,9 @@ Access-Control-Allow-Headers: X-File-Name, X-File-Type, X-File-Size
 Access-Control-Allow-Methods: OPTIONS, HEAD, POST
 Access-Control-Allow-Origin: *
 
-###图片处理 --数据处理
+###图片处理Api --数据处理
    http://developer.qiniu.com/code/v6/api/kodo-api/image/index.html
+   http://developer.qiniu.com/code/v6/api/kodo-api/image/imageview2.html
 - 图片基本处理 (imageView2)
     此接口支持处理的原图片格式有psd、jpeg、png、gif、webp、tiff、bmp
     支持图片互相转换的格式有：jpg，gif，png，webp
@@ -26,6 +27,46 @@ Access-Control-Allow-Origin: *
         http://ogazeaa9c.bkt.clouddn.com/pay.jpg?imageView2/2/format/webp
     webp转jpg：
         http://ogazeaa9c.bkt.clouddn.com/pay.webp?imageView2/2/format/jpg
+
+    获取图片信息：
+	http://ogazeaa9c.bkt.clouddn.com/pay.webp?imageView2/2/format/jpg|imageInfo
+	响应： {"format":"jpeg","width":657,"height":462,"colorModel":"ycbcr"}
+	http://ogazeaa9c.bkt.clouddn.com/pay.webp?imageInfo
+	响应： {"format":"webp","width":657,"height":462,"colorModel":"ycbcr"}
+    获取图片exif信息（数码相机的照片），如果信息不存在返回错误json：
+	http://ogazeaa9c.bkt.clouddn.com/pay.webp?exif  返回 {"error":"no exif data"}
+······
+exif正确格式返回：
+ {
+     "DateTime" : {
+        "type" : 2,
+        "val" : "2011:11:19 17:09:23"
+     },
+     "ExposureBiasValue" : {
+        "type" : 10,
+        "val" : "0.33 EV"
+     },
+     "ExposureTime" : {
+        "type" : 5,
+        "val" : "1/50 sec."
+     },
+     "Model" : {
+        "type" : 2,
+        "val" : "Canon EOS 600D"
+     },
+     "ISOSpeedRatings" : {
+        "type" : 3,
+        "val" : "3200"
+     },
+     "ResolutionUnit" : {
+        "type" : 3,
+        "val" : " 英寸"
+     },
+
+     ...后续内容已省略...
+  }
+······
+	获取图片的平均颜色值： http://ogazeaa9c.bkt.clouddn.com/che.jpg?imageAve  返回 {"RGB":"0x716c67"}
 - 图片高级处理 (imageMogr2)
     支持处理的原图片格式有 psd、jpeg、png、gif、webp、tiff、bmp
     图片格式转换,支持jpg、gif、png、webp
@@ -53,7 +94,10 @@ http://www.plupload.com/
 }
 ``````
 ###定义图片样式
+解决url?参数过多，复杂等问题
+访问格式：http://domain/文件key-样式名
 样式名 webp 值为 imageView2/2/format/webp
 访问http://ogazeaa9c.bkt.clouddn.com/pay.jpg-webp 等价于
     http://ogazeaa9c.bkt.clouddn.com/pay.jpg?imageView2/2/format/webp
     
+
