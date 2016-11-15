@@ -35,7 +35,7 @@ Access-Control-Allow-Origin: *
 	响应： {"format":"webp","width":657,"height":462,"colorModel":"ycbcr"}
     获取图片exif信息（数码相机的照片），如果信息不存在返回错误json：
 	http://ogazeaa9c.bkt.clouddn.com/pay.webp?exif  返回 {"error":"no exif data"}
-······
+``````
 exif正确格式返回：
  {
      "DateTime" : {
@@ -65,7 +65,7 @@ exif正确格式返回：
 
      ...后续内容已省略...
   }
-······
+``````
 	获取图片的平均颜色值： http://ogazeaa9c.bkt.clouddn.com/che.jpg?imageAve  返回 {"RGB":"0x716c67"}
 - 图片高级处理 (imageMogr2)
     支持处理的原图片格式有 psd、jpeg、png、gif、webp、tiff、bmp
