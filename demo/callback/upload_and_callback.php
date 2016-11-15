@@ -21,6 +21,7 @@ $bucket = $qiniuConfig['bucket_name'];
 // 可参考文档: http://developer.qiniu.com/docs/v6/api/reference/security/put-policy.html
 $policy = array(
     'callbackUrl' => 'http://zentao.qianguopai.com/qiniu_notify.php',
+    //'callbackFetchKey'=>0,
     'callbackBody' => 'filename=$(fname)&filesize=$(fsize)&hash=$(etag)&userid=123456&phone=13712345678'
 );
 //filename=20161110222651%2Ft1%2Fabc.jpg&filesize=21349&hash=FrCL5445_2no3fGhXQQ3GeUtA4ey&userid=123456&phone=13712345678 这是回调内容
@@ -30,8 +31,8 @@ $token = $auth->uploadToken($bucket, null, 3600, $policy);
 // 要上传文件的本地路径
 $filePath = DEMO_ROOT . 'static/img/abc.jpg';
 // 上传到七牛后保存的文件名,即访问地址（http://og54iil9t.bkt.clouddn.com/t1/abc.jpg）
-$key = date('YmdHis').'/t1/abc.jpg'; //文件地址已经存在则不能再上传除非换不同的url path地址
-
+$key = date('YmdHis').'/t1/abc.jpg'; //文件地址已经存在则不能再上传(除非换不同的url path地址)
+//$key = null;
 // 初始化 UploadManager 对象并进行文件的上传。
 $uploadMgr = new UploadManager();
 
