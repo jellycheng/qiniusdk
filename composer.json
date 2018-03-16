@@ -2,7 +2,7 @@
     "name": "cjs/qiniusdk",
     "type": "library",
     "description": "Cloud Storage SDK for PHP",
-    "keywords": ["qiniu", "storage", "sdk", "cloud"],
+    "keywords": ["qiniu", "storage", "sdk", "cloud", "upload"],
     "license": "MIT",
     "authors": [
     ],
